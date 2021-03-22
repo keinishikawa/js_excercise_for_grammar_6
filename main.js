@@ -26,6 +26,31 @@
 //           - 第1引数で受けとった `message` の内容を `alert` を使ってアラートダイアログに表示する
 //   - kadai_3関数を実装した直後に「kadai_3(数値, コールバック関数)」を呼び出して、アラートダイアログのメッセージ内容が意図通りであることを確認する
 
+const kadai_3 = (age, callback)=>{
+
+    if(typeof(age)==="number"){
+        if(age>=20){
+            message = "値は20以上です";
+        }else if(10<=age && age<20){
+            message = "値は10以上20未満です";
+        }else{
+            message = "値は10未満です";
+        }
+    }else{
+        message = "数値が入力されていません";
+    }
+    callback(message);
+}
+
+const callback = (message) => {
+    window.alert(message);
+}
+
+kadai_3(8,callback);
+
+kadai_3(20,(message)=>{
+    alert(message);
+})
 
 // 課題4: 以下の条件を満たす即時関数を作る
 //   - 2つの引数を受け取る
@@ -33,3 +58,8 @@
 //     - 第2引数: y => 数値
 //   - 処理内容:
 //     - 第1引数のx, 第2引数のyを使って足し算した結果(「x + y」の結果)をconsole.logで出力する。
+const instantFunc = ((x,y)=>{
+    console.log(x+y);
+})
+
+instantFunc(30,19);
